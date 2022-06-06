@@ -1,0 +1,25 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/inspiration?useUnicode=true&characterEncoding=UTF-8&serverTimeZone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 20MB
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      table-prefix: ms_
+  mapper-locations: classpath:mapper/*.xml
+qiniu:
+  accessKey: _irjkApvNwXS6kYHMAJRzAN0DxCV_ulYPsuFrhdz
+  accessSecretKey: tvJlKU2z2e5EcTvQBvrJNfYwq0LQu6LoAu5x9jRg

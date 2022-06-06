@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inspiration.dao.mapper.TagMapper">
+
+    <select id="findTagsByIdeaId" resultType="com.inspiration.dao.pojo.Tag">
+        select mt.*
+        from ms_tag mt
+                 join ms_idea_tag mit on mt.id = mit.tag_id
+        where mit.idea_id = #{ideaId}
+    </select>
+    <select id="findHotTagIds" resultType="java.lang.Long">
+        select tag_id
+        from ms_idea_tag
+        group by tag_id
+        order by count(*) desc limit #{limit}
+    </select>
+</mapper>
